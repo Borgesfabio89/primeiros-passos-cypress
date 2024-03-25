@@ -11,20 +11,7 @@ const myInfoPage = new MyInfoPage
 
 describe('Orange HRM Tests', () => {
 
-  const selectorsList = {
-    
-    firstNameField: "[name='firstName']",
-    lastNameField: "[name='lastName']",
-    genericField: ".oxd-input--active",
-    dateField: "[placeholder='yyyy-dd-mm']",
-    dateCloseButton: '.--close',
-    submitButton: "[type='submit']",
-    nationalityButton: "[clear='false']",
-    changeNationalityField: ":nth-child(5) > span",
-    maritalStatusButtton: "[clear='false']",
-    changeMaritalStatusField: '.oxd-select-dropdown > :nth-child(3)',
-  }
-  it.only('User Info Update - Success', () => {
+  it('User Info Update - Success', () => {
     loginPage.accessLoginPage()
     loginPage.loginWithAnyUser(userData.userSuccess.username, userData.userSuccess.password)
     dashboardPage.checkDashboardPage()
@@ -36,11 +23,4 @@ describe('Orange HRM Tests', () => {
 
   })
   
-  it('Login - Fail', () => {
-    cy.visit('/auth/login')
-    cy.get(selectorsList.usernameField).type(userData.userFail.username)
-    cy.get(selectorsList.passwordField).type(userData.userFail.password)
-    cy.get(selectorsList.loginButton).click()
-    cy.get(selectorsList.wrongCredencialAlert)
-  })
-  })
+})
